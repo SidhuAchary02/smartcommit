@@ -13,7 +13,17 @@ async function main() {
     return
   }
 
-  const message = await generateCommit(diff)
+  let message = await generateCommit(diff)
+
+  // Remove markdown formatting
+  message = message
+    .replace(/```.*?```/gs, "")
+    .replace(/`/g, "")
+    .replace(/Here.*?:/i, "")
+    .trim()
+
+  // Take first line only
+  message = message.split("\n")[0].trim()
 
   console.log("\nSuggested commit message:\n")
   console.log(message)
@@ -25,7 +35,7 @@ async function main() {
 
   rl.question("\nUse this commit? (y/n): ", (answer) => {
     if (answer.toLowerCase() === "y") {
-      execSync(`git commit -m "${message}"`, { stdio: "inherit" })
+      execSync(`git commit -m "${message.replace(/"/g, '\\"')}"`, { stdio: "inherit" })
       console.log("✅ Commit created.")
     } else {
       console.log("❌ Commit cancelled.")
