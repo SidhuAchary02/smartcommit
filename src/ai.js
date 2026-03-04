@@ -1,9 +1,15 @@
 import "dotenv/config"
 import Groq from "groq-sdk"
 
+if (!process.env.GROQ_API_KEY) {
+  console.error("Please set GROQ_API_KEY environment variable.")
+  process.exit(1)
+}
+
 const groq = new Groq({
     apiKey: process.env.GROQ_API_KEY
 })
+
 
 export async function generateCommit(diff) {
     const response = await groq.chat.completions.create({

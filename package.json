@@ -1,5 +1,5 @@
 {
-  "name": "smartcommit",
+  "name": "@sidhuachary/smartcommit",
   "version": "1.0.0",
   "description": "AI-powered CLI tool that generates conventional git commit messages from git diff.",
   "type": "module",
