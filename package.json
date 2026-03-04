@@ -1,18 +1,42 @@
 {
   "name": "smartcommit",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "description": "AI-powered CLI tool that generates conventional git commit messages from git diff.",
   "type": "module",
   "bin": {
     "smartcommit": "./src/cli.js"
   },
+  "main": "./src/cli.js",
+  "scripts": {
+    "start": "node src/cli.js",
+    "lint": "echo \"Add eslint later\"",
+    "test": "echo \"No tests yet\""
+  },
+  "keywords": [
+    "git",
+    "commit",
+    "ai",
+    "cli",
+    "developer-tools",
+    "productivity",
+    "conventional-commits"
+  ],
+  "author": "Sidhu Achary",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/SidhuAchary02/smartcommit.git"
+  },
+  "bugs": {
+    "url": "https://github.com/SidhuAchary02/smartcommit/issues"
+  },
+  "homepage": "https://github.com/SidhuAchary02/smartcommit#readme",
+  "engines": {
+    "node": ">=18"
+  },
+  "files": [
+    "src"
+  ],
   "dependencies": {
     "chalk": "^5.6.2",
     "commander": "^14.0.3",
